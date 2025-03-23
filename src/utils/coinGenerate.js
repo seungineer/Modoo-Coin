@@ -10,8 +10,10 @@ export const generateFakeData = () => {
         changeRate = -(Math.random() * 0.2) - 0.1; // -10% ~ -30%
     }
 
-    const newPrice = Math.floor(basePrice * (1 + changeRate)); // 변동 반영
-    const changePrice = Math.abs(newPrice - basePrice); // 변동 값 계산
+    let newPriceRaw = basePrice * (1 + changeRate);
+    let newPrice = Math.round(newPriceRaw / 1000) * 1000;
+
+    const changePrice = Math.abs(newPrice - basePrice);
 
     return {
       "KRW-POT": {

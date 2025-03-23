@@ -36,6 +36,9 @@ export const isValid = (selectedCoin, selectedCoinKey, quantity, balance) => {
   if (!selectedCoinKey || selectedCoin <= 0) {
     return '🚨 Select a coin first!';
   }
+  if (quantity < 0.001) {
+    return '🚨 Minimum 0.001!';
+  }
   if (quantity <= 0) {
     return '🚨 Enter the quantity!';
   }
